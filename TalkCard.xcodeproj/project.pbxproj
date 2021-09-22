@@ -15,6 +15,8 @@
 		5D44D61226678EED009DD98A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5D44D61026678EED009DD98A /* LaunchScreen.storyboard */; };
 		5D44D61D26678EED009DD98A /* TalkCardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D44D61C26678EED009DD98A /* TalkCardTests.swift */; };
 		5D44D62826678EED009DD98A /* TalkCardUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D44D62726678EED009DD98A /* TalkCardUITests.swift */; };
+		5D672A8C2670D09500AA5A87 /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D672A8B2670D09500AA5A87 /* EditViewController.swift */; };
+		5DCB611D26D658DC0028CD3F /* CardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DCB611C26D658DC0028CD3F /* CardCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +51,8 @@
 		5D44D62326678EED009DD98A /* TalkCardUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TalkCardUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D44D62726678EED009DD98A /* TalkCardUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TalkCardUITests.swift; sourceTree = "<group>"; };
 		5D44D62926678EED009DD98A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5D672A8B2670D09500AA5A87 /* EditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
+		5DCB611C26D658DC0028CD3F /* CardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +106,8 @@
 				5D44D60526678EEB009DD98A /* AppDelegate.swift */,
 				5D44D60726678EEB009DD98A /* SceneDelegate.swift */,
 				5D44D60926678EEB009DD98A /* ViewController.swift */,
+				5DCB611C26D658DC0028CD3F /* CardCell.swift */,
+				5D672A8B2670D09500AA5A87 /* EditViewController.swift */,
 				5D44D60B26678EEB009DD98A /* Main.storyboard */,
 				5D44D60E26678EED009DD98A /* Assets.xcassets */,
 				5D44D61026678EED009DD98A /* LaunchScreen.storyboard */,
@@ -258,6 +264,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5DCB611D26D658DC0028CD3F /* CardCell.swift in Sources */,
+				5D672A8C2670D09500AA5A87 /* EditViewController.swift in Sources */,
 				5D44D60A26678EEB009DD98A /* ViewController.swift in Sources */,
 				5D44D60626678EEB009DD98A /* AppDelegate.swift in Sources */,
 				5D44D60826678EEB009DD98A /* SceneDelegate.swift in Sources */,
