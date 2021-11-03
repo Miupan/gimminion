@@ -10,17 +10,18 @@ import UIKit
 class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource{
     
     @IBOutlet var collectionView: UICollectionView!
+    @IBOutlet var collectionViewFlowLayout: UICollectionViewFlowLayout!
     
     var number:Int = 0
     var selectednumber:Int = 0
     
     //カード名の配列
-    let cardName:[String] = ["はい", "いいえ", "ありがとう", "ごめんなさい"]
-    
+    let cardName:[String] = ["はい", "いいえ", "ありがとう", "ごめんなさい", "ちょっとキツイ", "やりたい！", "おはよう", "久しぶり", "じゃあね"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        collectionViewFlowLayout.estimatedItemSize = CGSize(width: collectionView.frame.width / 3, height: collectionView.frame.height / 3)
     }
     
     override func didReceiveMemoryWarning() {

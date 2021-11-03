@@ -8,7 +8,7 @@
 import AVFoundation
 import UIKit
 
-class EditViewController: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate{
+class EditViewController: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate, UIImagePickerControllerDelegate & UINavigationControllerDelegate{
     
     var number: Int = 0
     
@@ -98,9 +98,24 @@ class EditViewController: UIViewController, AVAudioRecorderDelegate, AVAudioPlay
         
     }
     
+    
+    //カメラロール使用時に選択した画像をアプリ内に表示するメソッド
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        registationImage.image = info[.editedImage] as? UIImage
+        dismiss(animated: true, completion: nil)
+    }
+    
     //画像入れるメソッド
     @IBAction func putImageButton(){
-        
+        //カメラロール使えるか？確認
+        if UIImagePickerController.isSourceTypeAvailable(.photoLibrary){
+            //カメラロールの画像選択→画像表示までの一連の流れ
+            let picker = UIImagePickerController()
+            picker.sourceType = .photoLibrary
+            picker.delegate = self
+            picker.allowsEditing = true
+            present(picker, animated: true, completion: nil)
+        }
         
     }
     
