@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CardCell: UICollectionViewCell {
+class CardCell:UICollectionViewCell {
     @IBOutlet var nameLabel: UILabel!
     @IBOutlet var cardImageView: UIImageView!
     

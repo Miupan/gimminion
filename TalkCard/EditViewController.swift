@@ -118,7 +118,6 @@ class EditViewController: UIViewController, AVAudioRecorderDelegate, AVAudioPlay
         }
         
     }
-    
 
     //userdefaultsに保存する公式
     let saveData: UserDefaults = UserDefaults.standard

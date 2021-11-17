@@ -21,7 +21,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        collectionViewFlowLayout.estimatedItemSize = CGSize(width: collectionView.frame.width / 3, height: collectionView.frame.height / 3)
+        collectionViewFlowLayout.estimatedItemSize = CGSize(width: collectionView.frame.width / 4, height: collectionView.frame.height / 4)
     }
     
     override func didReceiveMemoryWarning() {
