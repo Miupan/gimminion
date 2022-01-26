@@ -13,7 +13,7 @@ class DataManager{
     private var persistentContainer: NSPersistentContainer!
     
     init() {
-        persistentContainer = NSPersistentContainer(name: "CoreDataSample")
+        persistentContainer = NSPersistentContainer(name: "CoreDataKeep")
         persistentContainer.loadPersistentStores{ (description, error) in
             if let error = error {
                 fatalError("Failed to load Core Data stack: \(error)")
@@ -44,7 +44,4 @@ class DataManager{
         return NSFetchedResultsController<T>(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: nil,cacheName: nil)
     }
     
-    let dataManagaer = DataManager.shared
-    let talkcard: Card = TalkCard.DataManager.create()
-    DataManager.saveContext()
 }

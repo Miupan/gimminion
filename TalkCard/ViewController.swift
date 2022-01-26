@@ -6,8 +6,9 @@
 //
 
 import UIKit
+import CoreData
 
-class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource{
+class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, NSFetchedResultsControllerDelegate{
     
     @IBOutlet var collectionView: UICollectionView!
     @IBOutlet var collectionViewFlowLayout: UICollectionViewFlowLayout!
@@ -27,6 +28,27 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
+    
+    //DataManagerの宣言
+    let dataManager = DataManager.shared
+    //DataManagerの読み出し
+    lazy var fetchedResultsController: NSFetchedResultsController<Card> = {
+        let _controller:NSFetchedResultsController<Card> = dataManager.getFetchedResultController(with: ["date"])
+        _controller .delegate = self
+        return _controller
+    }()
+    
+    //データ取得
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        do {
+            try fetchedResultsController.performFetch()
+        } catch {
+            print(error)
+        }
+    }
+    
+    
     
     //cellの数を指定
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -51,6 +73,8 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         return EditViewController(coder: coder)
         
     }
+    
+    
 }
 
 

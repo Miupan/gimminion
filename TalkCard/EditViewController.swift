@@ -7,8 +7,9 @@
 
 import AVFoundation
 import UIKit
+import CoreData
 
-class EditViewController: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate, UIImagePickerControllerDelegate & UINavigationControllerDelegate{
+class EditViewController: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate, UIImagePickerControllerDelegate & UINavigationControllerDelegate, NSFetchedResultsControllerDelegate{
     
     var number: Int = 0
     
@@ -17,6 +18,8 @@ class EditViewController: UIViewController, AVAudioRecorderDelegate, AVAudioPlay
     var isRecording = false
     var isPlaying = false
     
+    let dataManager = DataManager.shared
+    
     @IBOutlet var registationImage:UIImageView!
     @IBOutlet var nameLabel:UILabel!
     @IBOutlet var conditionLabel:UILabel!
@@ -24,10 +27,29 @@ class EditViewController: UIViewController, AVAudioRecorderDelegate, AVAudioPlay
     @IBOutlet var recordButton: UIButton!
     @IBOutlet var playButton: UIButton!
     
+    lazy var fetchedResultsController: NSFetchedResultsController<Card> = {
+        let _controller:NSFetchedResultsController<Card> = dataManager.getFetchedResultController(with: ["date"])
+        _controller.delegate = self
+        return _controller
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
+        //CoreDataで保存したものの呼び出し
+        
+    }
+    
+    //CoreDataでデータの取得
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        do {
+            try fetchedResultsController.performFetch()
+        } catch {
+            
+            print(error)
+        }
     }
     
     @IBAction func recordButtonAction(){
@@ -118,14 +140,14 @@ class EditViewController: UIViewController, AVAudioRecorderDelegate, AVAudioPlay
         }
         
     }
-
-    //userdefaultsに保存する公式
-    let saveData: UserDefaults = UserDefaults.standard
     
     @IBAction func saveButton(){
-        //userdefaultsに書き込み
-        saveData.set(registationImage.image, forKey: "image")
-        saveData.set(nameTextField.text, forKey: "cardname")
+        //CoreData
+        let dataManager = DataManager.shared
+        let recorded: Card = dataManager.create()
+        let image: Card = dataManager.create()
+        let cardname: Card = dataManager.create()
+        dataManager.saveContext()
     }
     
     
