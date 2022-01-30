@@ -144,9 +144,8 @@ class EditViewController: UIViewController, AVAudioRecorderDelegate, AVAudioPlay
     @IBAction func saveButton(){
         //CoreData
         let dataManager = DataManager.shared
-        let recorded: Card = dataManager.create()
-        let image: Card = dataManager.create()
-        let cardname: Card = dataManager.create()
+        let newCard = dataManager.create()
+        newCard.
         dataManager.saveContext()
     }
     

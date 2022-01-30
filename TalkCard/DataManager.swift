@@ -13,7 +13,7 @@ class DataManager{
     private var persistentContainer: NSPersistentContainer!
     
     init() {
-        persistentContainer = NSPersistentContainer(name: "CoreDataKeep")
+        persistentContainer = NSPersistentContainer(name: "Model")
         persistentContainer.loadPersistentStores{ (description, error) in
             if let error = error {
                 fatalError("Failed to load Core Data stack: \(error)")
