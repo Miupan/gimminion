@@ -112,8 +112,8 @@
 				5DA829F427451B2E00D2DF8F /* DataManager.swift */,
 				5D44D60726678EEB009DD98A /* SceneDelegate.swift */,
 				5D44D60926678EEB009DD98A /* ViewController.swift */,
-				5DCB611C26D658DC0028CD3F /* CardCell.swift */,
 				5D672A8B2670D09500AA5A87 /* EditViewController.swift */,
+				5DCB611C26D658DC0028CD3F /* CardCell.swift */,
 				5D44D60B26678EEB009DD98A /* Main.storyboard */,
 				5D44D60E26678EED009DD98A /* Assets.xcassets */,
 				5D44D61026678EED009DD98A /* LaunchScreen.storyboard */,
@@ -453,7 +453,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 8F32Y7S2LA;
 				INFOPLIST_FILE = TalkCard/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -472,7 +472,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 8F32Y7S2LA;
 				INFOPLIST_FILE = TalkCard/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

@@ -9,7 +9,7 @@ import AVFoundation
 import UIKit
 import CoreData
 
-class EditViewController: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate, UIImagePickerControllerDelegate & UINavigationControllerDelegate, NSFetchedResultsControllerDelegate{
+class EditViewController: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate, UIImagePickerControllerDelegate & UINavigationControllerDelegate, NSFetchedResultsControllerDelegate, UITextFieldDelegate{
     
     var number: Int = 0
     
@@ -35,12 +35,24 @@ class EditViewController: UIViewController, AVAudioRecorderDelegate, AVAudioPlay
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //nameTextFieldのdelegateをEditViewControllerが受け取る
+        nameTextField.delegate = self
         
         // Do any additional setup after loading the view.
-        //CoreDataで保存したものの呼び出し
-        
     }
     
+    //画面をタッチした時キーボードをしまう
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
+    //Return押した時にキーボードしまう
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        //キーボードを非表示にする
+        nameTextField.endEditing(true)
+        return true
+    }
+
     //CoreDataでデータの取得
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -51,6 +63,7 @@ class EditViewController: UIViewController, AVAudioRecorderDelegate, AVAudioPlay
             print(error)
         }
     }
+    
     
     @IBAction func recordButtonAction(){
         if !isRecording {
