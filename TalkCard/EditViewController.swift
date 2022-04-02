@@ -18,6 +18,13 @@ class EditViewController: UIViewController, AVAudioRecorderDelegate, AVAudioPlay
     var isRecording = false
     var isPlaying = false
     
+    let settings = [
+        AVFormatIDKey: Int(kAudioFormatMPEG4AAC),
+        AVSampleRateKey: 44100,
+        AVNumberOfChannelsKey: 2,
+        AVEncoderAudioQualityKey: AVAudioQuality.high.rawValue
+    ]
+    
     let dataManager = DataManager.shared
     
     @IBOutlet var registationImage:UIImageView!
@@ -37,7 +44,6 @@ class EditViewController: UIViewController, AVAudioRecorderDelegate, AVAudioPlay
         super.viewDidLoad()
         //nameTextFieldのdelegateをEditViewControllerが受け取る
         nameTextField.delegate = self
-        
         // Do any additional setup after loading the view.
     }
     
@@ -63,20 +69,12 @@ class EditViewController: UIViewController, AVAudioRecorderDelegate, AVAudioPlay
             print(error)
         }
     }
-    
-    
+
     @IBAction func recordButtonAction(){
         if !isRecording {
-            let  session = AVAudioSession.sharedInstance()
+            let session = AVAudioSession.sharedInstance()
             try! session.setCategory(AVAudioSession.Category.playAndRecord)
             try! session.setActive(true)
-            
-            let settings = [
-                AVFormatIDKey: Int(kAudioFormatMPEG4AAC),
-                AVSampleRateKey: 44100,
-                AVNumberOfChannelsKey: 2,
-                AVEncoderAudioQualityKey: AVAudioQuality.high.rawValue
-            ]
             
             audioRecorder = try! AVAudioRecorder(url: getURL(), settings: settings)
             audioRecorder.delegate = self
@@ -104,6 +102,8 @@ class EditViewController: UIViewController, AVAudioRecorderDelegate, AVAudioPlay
     
     @IBAction func playButtonAction(){
         if !isPlaying {
+            //let audioSession = AVAudioSession.sharedInstance()
+            //try audioSession.setCategory(AVAudioSession.Category.ambient)
             audioPlayer = try! AVAudioPlayer(contentsOf: getURL())
             audioPlayer.delegate = self
             audioPlayer.play()
@@ -154,16 +154,15 @@ class EditViewController: UIViewController, AVAudioRecorderDelegate, AVAudioPlay
         
     }
     
-    @IBAction func saveButton(){
+    @IBAction func saveButtonPressed() {
+        guard nameTextField.text != nil else {
+            return
+        }
         //CoreData
         let dataManager = DataManager.shared
         let newCard = dataManager.create()
-        newCard.
         dataManager.saveContext()
     }
-    
-    
-    
 }
     
     

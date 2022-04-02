@@ -59,22 +59,17 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     //ID付きのcellを取得
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cardCell", for: indexPath) as! CardCell
+        cell.delegate = self
         cell.nameLabel.text = cardName[indexPath.row]
         return cell
     }
-    
-    
-    @IBAction func imageButton1(sender: UIButton) {
-        selectednumber = sender.tag
-        performSegue(withIdentifier: "EditViewController", sender: nil)
+}
+
+extension ViewController: CardCellDelegate {
+    func editButtonPressed() {
+        // editボタンが押されたときの処理
+        performSegue(withIdentifier: "toEditViewController", sender: nil)
     }
-    
-    @IBSegueAction func toEditViewController(coder: NSCoder, sender:Any?, segueIdentifier: String?) -> EditViewController? {
-        return EditViewController(coder: coder)
-        
-    }
-    
-    
 }
 
 

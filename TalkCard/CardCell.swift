@@ -7,8 +7,17 @@
 
 import UIKit
 
+protocol CardCellDelegate: AnyObject {
+    func editButtonPressed()
+}
+
 class CardCell:UICollectionViewCell {
     @IBOutlet var nameLabel: UILabel!
     @IBOutlet var cardImageView: UIImageView!
     
+    var delegate: CardCellDelegate?
+    
+    @IBAction func editButtonPressed() {
+        delegate?.editButtonPressed()
+    }
 }
