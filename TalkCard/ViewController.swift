@@ -8,8 +8,8 @@
 import AVFoundation
 import UIKit
 
-class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, AVAudioPlayerDelegate, CardCellDelegate{
-
+class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, AVAudioPlayerDelegate{
+    
     
     @IBOutlet var collectionView: UICollectionView!
     @IBOutlet var collectionViewFlowLayout: UICollectionViewFlowLayout!
@@ -59,9 +59,15 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
             audioPlayer.delegate = self
             audioPlayer.play()
             
+            isPlaying = true //再生中の状態
+        }else{
+            audioPlayer.stop()
+            isPlaying = false //再生停止中の状態
+        }
+            
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: any?){
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?){
         if segue.identifier == "toEditViewController" {
             let vc = segue.destination as! EditViewController
             vc.recievedTitle = selectedTitle
@@ -74,6 +80,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         let url = docsDirect.appendingPathComponent(selectedTitle)
         return url
     }
+}
         
 
 
@@ -84,5 +91,5 @@ extension ViewController: CardCellDelegate {
         performSegue(withIdentifier: "toEditViewController", sender: nil)
     }
 }
-}
+
     
