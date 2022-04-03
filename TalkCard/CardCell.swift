@@ -8,7 +8,7 @@
 import UIKit
 
 protocol CardCellDelegate: AnyObject {
-    func editButtonPressed()
+    func editButtonPressed(title: String)
 }
 
 class CardCell:UICollectionViewCell {
@@ -18,6 +18,6 @@ class CardCell:UICollectionViewCell {
     var delegate: CardCellDelegate?
     
     @IBAction func editButtonPressed() {
-        delegate?.editButtonPressed()
+        delegate?.editButtonPressed(title: nameLabel.text ?? "")
     }
 }

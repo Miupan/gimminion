@@ -17,7 +17,6 @@
 		5D44D62826678EED009DD98A /* TalkCardUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D44D62726678EED009DD98A /* TalkCardUITests.swift */; };
 		5D672A8C2670D09500AA5A87 /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D672A8B2670D09500AA5A87 /* EditViewController.swift */; };
 		5DA829F3274512DA00D2DF8F /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5DA829F1274512DA00D2DF8F /* Model.xcdatamodeld */; };
-		5DA829F527451B2E00D2DF8F /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DA829F427451B2E00D2DF8F /* DataManager.swift */; };
 		5DCB611D26D658DC0028CD3F /* CardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DCB611C26D658DC0028CD3F /* CardCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -55,7 +54,6 @@
 		5D44D62926678EED009DD98A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5D672A8B2670D09500AA5A87 /* EditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
 		5DA829F2274512DA00D2DF8F /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
-		5DA829F427451B2E00D2DF8F /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		5DCB611C26D658DC0028CD3F /* CardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -109,7 +107,6 @@
 			children = (
 				5DA829F1274512DA00D2DF8F /* Model.xcdatamodeld */,
 				5D44D60526678EEB009DD98A /* AppDelegate.swift */,
-				5DA829F427451B2E00D2DF8F /* DataManager.swift */,
 				5D44D60726678EEB009DD98A /* SceneDelegate.swift */,
 				5D44D60926678EEB009DD98A /* ViewController.swift */,
 				5D672A8B2670D09500AA5A87 /* EditViewController.swift */,
@@ -273,7 +270,6 @@
 				5DCB611D26D658DC0028CD3F /* CardCell.swift in Sources */,
 				5D672A8C2670D09500AA5A87 /* EditViewController.swift in Sources */,
 				5D44D60A26678EEB009DD98A /* ViewController.swift in Sources */,
-				5DA829F527451B2E00D2DF8F /* DataManager.swift in Sources */,
 				5D44D60626678EEB009DD98A /* AppDelegate.swift in Sources */,
 				5D44D60826678EEB009DD98A /* SceneDelegate.swift in Sources */,
 				5DA829F3274512DA00D2DF8F /* Model.xcdatamodeld in Sources */,

@@ -5,18 +5,22 @@
 //  Created by 美羽 on 2021/06/02.
 //
 
+import AVFoundation
 import UIKit
-import CoreData
 
-class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, NSFetchedResultsControllerDelegate{
+class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, AVAudioPlayerDelegate, CardCellDelegate{
+
     
     @IBOutlet var collectionView: UICollectionView!
     @IBOutlet var collectionViewFlowLayout: UICollectionViewFlowLayout!
     
-    var number:Int = 0
-    var selectednumber:Int = 0
+    var selectedTitle = String()
     
-    //カード名の配列
+    var audioPlayer: AVAudioPlayer!
+    
+    var isPlaying = false
+    
+    //カード名をuserdefaultsに保存できるように
     let cardName:[String] = ["はい", "いいえ", "ありがとう", "ごめんなさい", "ちょっとキツイ", "やりたい！", "おはよう", "久しぶり", "じゃあね"]
     
     override func viewDidLoad() {
@@ -28,26 +32,6 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-    
-    //DataManagerの宣言
-    let dataManager = DataManager.shared
-    //DataManagerの読み出し
-    lazy var fetchedResultsController: NSFetchedResultsController<Card> = {
-        let _controller:NSFetchedResultsController<Card> = dataManager.getFetchedResultController(with: ["date"])
-        _controller .delegate = self
-        return _controller
-    }()
-    
-    //データ取得
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        do {
-            try fetchedResultsController.performFetch()
-        } catch {
-            print(error)
-        }
-    }
-    
     
     
     //cellの数を指定
@@ -63,13 +47,42 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         cell.nameLabel.text = cardName[indexPath.row]
         return cell
     }
-}
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        selectedTitle = cardName[indexPath.row]
+        
+        if !isPlaying {
+            //let audioSession = AVAudioSession.sharedInstance()
+            //try audioSession.setCategory(AVAudioSession.Category.ambient)
+            audioPlayer = try! AVAudioPlayer(contentsOf: getURL())
+            audioPlayer.delegate = self
+            audioPlayer.play()
+            
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: any?){
+        if segue.identifier == "toEditViewController" {
+            let vc = segue.destination as! EditViewController
+            vc.recievedTitle = selectedTitle
+        }
+    }
+        
+    func getURL() -> URL {
+        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        let docsDirect = paths[0]
+        let url = docsDirect.appendingPathComponent(selectedTitle)
+        return url
+    }
+        
+
 
 extension ViewController: CardCellDelegate {
-    func editButtonPressed() {
+    func editButtonPressed(title: String) {
         // editボタンが押されたときの処理
+        selectedTitle = title
         performSegue(withIdentifier: "toEditViewController", sender: nil)
     }
 }
-
-
+}
+    
