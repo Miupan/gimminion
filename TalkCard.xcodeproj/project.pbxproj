@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5D2F2BBC27F98AF400FB87C5 /* girl.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D2F2BBB27F98AF300FB87C5 /* girl.png */; };
 		5D44D60626678EEB009DD98A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D44D60526678EEB009DD98A /* AppDelegate.swift */; };
 		5D44D60826678EEB009DD98A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D44D60726678EEB009DD98A /* SceneDelegate.swift */; };
 		5D44D60A26678EEB009DD98A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D44D60926678EEB009DD98A /* ViewController.swift */; };
@@ -38,6 +39,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5D2F2BBB27F98AF300FB87C5 /* girl.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = girl.png; path = images/girl.png; sourceTree = SOURCE_ROOT; };
 		5D44D60226678EEB009DD98A /* TalkCard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TalkCard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D44D60526678EEB009DD98A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5D44D60726678EEB009DD98A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -112,6 +114,7 @@
 				5D672A8B2670D09500AA5A87 /* EditViewController.swift */,
 				5DCB611C26D658DC0028CD3F /* CardCell.swift */,
 				5D44D60B26678EEB009DD98A /* Main.storyboard */,
+				5D2F2BBB27F98AF300FB87C5 /* girl.png */,
 				5D44D60E26678EED009DD98A /* Assets.xcassets */,
 				5D44D61026678EED009DD98A /* LaunchScreen.storyboard */,
 				5D44D61326678EED009DD98A /* Info.plist */,
@@ -241,6 +244,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5D44D61226678EED009DD98A /* LaunchScreen.storyboard in Resources */,
+				5D2F2BBC27F98AF400FB87C5 /* girl.png in Resources */,
 				5D44D60F26678EED009DD98A /* Assets.xcassets in Resources */,
 				5D44D60D26678EEB009DD98A /* Main.storyboard in Resources */,
 			);

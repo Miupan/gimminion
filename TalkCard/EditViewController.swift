@@ -26,14 +26,44 @@ class EditViewController: UIViewController, AVAudioRecorderDelegate, AVAudioPlay
     @IBOutlet var recordButton: UIButton!
     @IBOutlet var playButton: UIButton!
     
+    //UserDefaults の導入
+    var saveData: UserDefaults = UserDefaults.standard
+    
+    //textFieldに入れるtextの初期値
+    var testText:String = "none"
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         //nameTextFieldのdelegateをEditViewControllerが受け取る
         nameTextField.delegate = self
+        
+        
         if recievedTitle == "" {
             //タイトルがきてない→再生も録音もできないのでエラー処理をする
         }
+        
+        func readData() -> String{
+            
+        }
+        
+        //デフォルト値
+        saveData.register(defaults: ["title": "none"])
+        
+        nameTextField.text = readData()
+        
+        
+        //画像呼び出し
+        
+        registationImage.image = saveData.object(forKey: "image") as? UIImage
     }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        //Dispose of any resources that can be recreated
+    }
+    
+    //
     
     //画面をタッチした時キーボードをしまう
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -124,7 +154,7 @@ class EditViewController: UIViewController, AVAudioRecorderDelegate, AVAudioPlay
             picker.allowsEditing = true
             present(picker, animated: true, completion: nil)
         }
-        
+        saveData.set(registationImage.image, forKey: "image")
     }
 
 }

@@ -171,13 +171,7 @@
                         <viewLayoutGuide key="safeArea" id="Yb1-0m-YFV"/>
                         <color key="backgroundColor" systemColor="tertiarySystemGroupedBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Title" id="wjY-HL-eLc">
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="R6a-Jm-1jb">
-                            <connections>
-                                <action selector="saveButtonPressed" destination="6oD-MH-H6e" id="JE2-1Z-Yal"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Title" id="wjY-HL-eLc"/>
                     <connections>
                         <outlet property="conditionLabel" destination="j8B-LD-vjt" id="RKo-7b-wXo"/>
                         <outlet property="nameLabel" destination="1zC-hZ-fa3" id="xni-Ad-zTI"/>
@@ -190,6 +184,34 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="D3u-nn-Plu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1780" y="54.739336492890992"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="npT-yd-jm1">
+            <objects>
+                <viewController id="7CQ-B8-as1" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="m6Y-FU-MpP">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="girl.png" translatesAutoresizingMaskIntoConstraints="NO" id="yye-YF-DzG">
+                                <rect key="frame" x="55" y="166" width="281" height="513"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tMz-Qr-eyd">
+                                <rect key="frame" x="83" y="500" width="70" height="54"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Sr8-xm-KnF"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lMB-gt-CrE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="981.53846153846155" y="796.91943127962077"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="X30-wU-fah">
@@ -211,6 +233,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="girl.png" width="538" height="800"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

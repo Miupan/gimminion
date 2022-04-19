@@ -21,7 +21,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     var isPlaying = false
     
     //カード名をuserdefaultsに保存できるように
-    let cardName:[String] = ["はい", "いいえ", "ありがとう", "ごめんなさい", "ちょっとキツイ", "やりたい！", "おはよう", "久しぶり", "じゃあね"]
+    let cardName = ["はい","いいえ","ごめん","おはよう"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
